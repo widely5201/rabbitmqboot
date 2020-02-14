@@ -8,6 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * 延迟消息队列实现原理：
+ * TTL（Time to live）消息通过交换器到达死信队列，当死信队列没有消费者消费该条消息，并且到达消息失效时间，会转发消息到死信路由，
+ * 死信路由再将消息发送到绑定的消息队列上去供消费者消费
+ */
 @Configuration
 public class LikRabbitConfig {
 
